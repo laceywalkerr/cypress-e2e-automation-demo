@@ -2,7 +2,7 @@
 
 This repository demonstrates a structured, maintainable end-to-end automation framework built with Cypress.
 
-The purpose of this project is to model real-world automation architecture decisions — including abstraction, traceability, determinism, and CI readiness — rather than provide tutorial-style examples.
+The purpose of this project is to model real-world automation architecture decisions, including abstraction, traceability, determinism, and CI readiness, rather than provide tutorial-style examples.
 
 ---
 
