@@ -24,9 +24,11 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add("login", (username, password) => {
+Cypress.Commands.add("loginAsSauceDemo", () => {
   cy.visit("/");
-  cy.get('[data-test="username"]').type(username);
-  cy.get('[data-test="password"]').type(password);
+  cy.get('[data-test="username"]').type("standard_user");
+  cy.get('[data-test="password"]').type("secret_sauce");
   cy.get('[data-test="login-button"]').click();
+  cy.get(".inventory_list").should("be.visible");
 });
+
