@@ -2,7 +2,7 @@
 
 This repository demonstrates a structured, maintainable end-to-end automation framework built with Cypress.
 
-The goal of this project is not just to test functionality, but to model real-world test architecture decisions including abstraction, stability, and CI readiness.
+The purpose of this project is to model real-world automation architecture decisions — including abstraction, traceability, determinism, and CI readiness — rather than provide tutorial-style examples.
 
 ---
 
@@ -10,10 +10,27 @@ The goal of this project is not just to test functionality, but to model real-wo
 
 - Page Object Model (POM) for UI abstraction  
 - Custom Cypress commands for reusable workflows  
-- Structured test separation (auth vs shopping domains)  
-- Config-driven environment setup  
-- Explicit stabilization via DOM readiness assertions  
-- CI-aware retry configuration (run mode only)
+- Deterministic test setup via controlled login state  
+- Clear test case identification (`TC-#`)  
+- JIRA-style ticket traceability (`#JIRA-1234`)  
+- Explicit DOM readiness assertions for stability  
+- CI-aware configuration and run-mode behavior  
+
+---
+
+## Test Naming Convention
+
+Each test follows a structured format:
+
+```
+[TC-#] [#JIRA-XXXX] Verify that ...
+```
+
+This mirrors enterprise QA environments where:
+
+- Tests are traceable to backlog tickets  
+- Cases are uniquely identifiable  
+- Behavior is documented in clear verification language  
 
 ---
 
@@ -41,9 +58,10 @@ The goal of this project is not just to test functionality, but to model real-wo
 ## Design Decisions
 
 - `baseUrl` centralized in `cypress.config.js`  
-- Assertions remain in the test layer (not embedded in commands)  
-- Custom `cy.login()` command abstracts authentication without hiding validation  
-- Retry configuration applied for run mode to simulate CI behavior  
+- Login abstracted into a custom command while keeping validation visible  
+- Assertions remain in the spec layer for clarity and auditability  
+- Tests avoid cross-test state dependency  
+- Default Cypress test isolation preserved for reliability  
 - Video artifacts disabled to keep repository clean  
 
 ---
@@ -70,4 +88,5 @@ npx cypress run
 
 ---
 
-This project reflects a mid-level automation structure focused on clarity, stability, and maintainability rather than tutorial-style examples.
+This project reflects a mid-level automation structure focused on clarity, stability, traceability, and maintainability, with an emphasis on deterministic behavior over tutorial shortcuts.
+
