@@ -14,6 +14,10 @@ class InventoryPage {
   goToCart() {
     this.cartIcon().click();
   }
+
+  backpackDescription() {
+    return cy.get('[data-test="inventory-item-desc"]').first();
+  }
 }
 
 export default InventoryPage;

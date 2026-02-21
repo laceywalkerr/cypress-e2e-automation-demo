@@ -28,5 +28,11 @@ beforeEach(() => {
     inventoryPage.goToCart();
     cartPage.itemName().should("contain", "Sauce Labs Backpack");
   });
+
+  it(`[${tc++}] [#JIRA-1237] Verify that the backpack description matches expected fixture data`, () => {
+  cy.fixture("inventory").then((data) => {
+    inventoryPage.backpackDescription().should("have.text", data.backpack.description);
+  });
+});
 });
 
