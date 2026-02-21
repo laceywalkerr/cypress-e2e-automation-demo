@@ -8,13 +8,14 @@ The purpose of this project is to model real-world automation architecture decis
 
 ## Architecture Highlights
 
-- Page Object Model (POM) for UI abstraction  
-- Custom Cypress commands for reusable workflows  
-- Deterministic test setup via controlled login state  
-- Clear test case identification (`TC-#`)  
-- JIRA-style ticket traceability (`#JIRA-1234`)  
-- Explicit DOM readiness assertions for stability  
-- CI-aware configuration and run-mode behavior  
+- Page Object Model (POM) for UI abstraction
+- Custom Cypress commands for reusable workflows
+- Deterministic login state via centralized authentication command
+- Fixture-driven test data validation
+- Clear test case identification (TC-#)
+- JIRA-style ticket traceability (#JIRA-1234)
+- Explicit DOM readiness assertions for stability
+- CI-aware configuration and run-mode behavior
 
 ---
 
@@ -30,7 +31,8 @@ This mirrors enterprise QA environments where:
 
 - Tests are traceable to backlog tickets  
 - Cases are uniquely identifiable  
-- Behavior is documented in clear verification language  
+- Behavior is documented in clear verification language
+- Changes can be audited against release tickets  
 
 ---
 
@@ -51,7 +53,8 @@ This mirrors enterprise QA environments where:
 ### Cart Flow
 - Add item to cart  
 - Cart badge assertion  
-- Cart page verification  
+- Cart page verification
+- Fixture-based validation of product description
 
 ---
 
