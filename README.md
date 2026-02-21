@@ -2,20 +2,22 @@
 
 This repository demonstrates a structured, maintainable end-to-end automation framework built with Cypress.
 
-The purpose of this project is to model real-world automation architecture decisions, including abstraction, traceability, determinism, and CI readiness, rather than provide tutorial-style examples.
+The purpose of this project is to model real-world automation architecture decisions, including abstraction, traceability, determinism, controlled test data, network isolation, and CI readiness, rather than provide tutorial-style examples.
 
 ---
 
 ## Architecture Highlights
 
 - Page Object Model (POM) for UI abstraction
-- Custom Cypress commands for reusable workflows
-- Deterministic login state via centralized authentication command
+- Domain-based test separation (Authentication vs Shopping flows)
+- Custom Cypress commands for reusable, deterministic login
 - Fixture-driven test data validation
+- Negative scenario coverage
+- Network stubbing via cy.intercept() for deterministic rendering and isolation
 - Clear test case identification (TC-#)
-- JIRA-style ticket traceability (#JIRA-1234)
+- JIRA-style ticket traceability (#JIRA-XXXX)
 - Explicit DOM readiness assertions for stability
-- CI-aware configuration and run-mode behavior
+- CI-aware retry configuration
 
 ---
 
@@ -48,22 +50,32 @@ This mirrors enterprise QA environments where:
 
 ### Authentication
 - Successful login validation  
-- Invalid credential handling  
+- Locked-out user negative validation  
 
 ### Cart Flow
 - Add item to cart  
 - Cart badge assertion  
 - Cart page verification
 - Fixture-based validation of product description
+- Fixture-based validation of product price
+
+### Checkout Flow
+- Successful end-to-end checkout
+- Required field validation (negative scenario)
+
+### Network Validation
+
+- Deterministic stubbing of inventory page via cy.intercept()
+- Status code validation and controlled DOM rendering
 
 ---
 
 ## Design Decisions
 
-- `baseUrl` centralized in `cypress.config.js`  
+- `baseUrl` centralized in `cypress.config.js`
+- Retry configuration applied for run mode to simulate CI behavior
 - Login abstracted into a custom command while keeping validation visible  
 - Assertions remain in the spec layer for clarity and auditability  
-- Tests avoid cross-test state dependency  
 - Default Cypress test isolation preserved for reliability  
 - Video artifacts disabled to keep repository clean  
 
@@ -91,5 +103,5 @@ npx cypress run
 
 ---
 
-This project reflects a mid-level automation structure focused on clarity, stability, traceability, and maintainability, with an emphasis on deterministic behavior over tutorial shortcuts.
+This project reflects a production-minded automation structure focused on clarity, stability, traceability, and maintainability, with an emphasis on deterministic behavior over tutorial shortcuts.
 
