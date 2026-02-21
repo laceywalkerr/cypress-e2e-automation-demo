@@ -30,9 +30,18 @@ beforeEach(() => {
   });
 
   it(`[${tc++}] [#JIRA-1237] Verify that the backpack description matches expected fixture data`, () => {
-  cy.fixture("inventory").then((data) => {
-    inventoryPage.backpackDescription().should("have.text", data.backpack.description);
+    cy.fixture("inventory").then((data) => {
+      inventoryPage.backpackDescription().should("have.text", data.backpack.description);
+    });
   });
-});
+
+  it(`[${tc++}] [#JIRA-2006] Verify backpack price matches fixture data`, () => {
+    cy.fixture("inventory").then((data) => {
+      cy.get('[data-test="inventory-item-price"]')
+        .first()
+        .should("have.text", data.backpack.price);
+    });
+  });
+
 });
 
