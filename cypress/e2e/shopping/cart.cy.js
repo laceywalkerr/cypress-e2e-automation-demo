@@ -9,9 +9,9 @@ describe("Cart Flow", () => {
   const inventoryPage = new InventoryPage();
   const cartPage = new CartPage();
 
-beforeEach(() => {
-  cy.loginAsSauceDemo();
-});
+  beforeEach(() => {
+    cy.loginAsSauceDemo();
+  });
 
   it(`[${tc++}] [#JIRA-1234] Verify that when the backpack is added to the cart, the cart badge increments to 1`, () => {
     inventoryPage.addBackpackToCart();

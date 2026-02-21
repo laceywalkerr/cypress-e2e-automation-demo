@@ -35,5 +35,6 @@ describe("Checkout Flow", () => {
 
   cy.get('[data-test="error"]')
     .should("contain", "Error: First Name is required");
-});
+  });
+
 });
