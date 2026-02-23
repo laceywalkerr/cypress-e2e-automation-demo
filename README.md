@@ -14,7 +14,7 @@ The purpose of this project is to model real-world automation architecture decis
 - Fixture-driven test data validation
 - Negative scenario coverage
 - Network stubbing via cy.intercept() for deterministic rendering and isolation
-- Clear test case identification (TC-#)
+- Structured test case numbering
 - JIRA-style ticket traceability (#JIRA-XXXX)
 - Explicit DOM readiness assertions for stability
 - CI-aware retry configuration
