@@ -29,6 +29,8 @@ describe("Cart Flow", () => {
     cartPage.itemName().should("contain", "Sauce Labs Backpack");
   });
 
+  // Validates UI content against controlled fixture data
+  // Demonstrates data-driven test strategy
   it(`[${tc++}] [#JIRA-1237] Verify that the backpack description matches expected fixture data`, () => {
     cy.fixture("inventory").then((data) => {
       inventoryPage.backpackDescription().should("have.text", data.backpack.description);

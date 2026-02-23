@@ -1,3 +1,8 @@
+// SauceDemo is a static demo site and does not expose a true inventory API
+// In a real environment, interception would target a backend endpoint (e.g., /api/inventory)
+// This example instead demonstrates deterministic rendering control by stubbing the document request
+// The goal is to illustrate isolation capability rather than validate a production API contract
+
 let tc = 1;
 
 describe("Inventory Network Validation", () => {

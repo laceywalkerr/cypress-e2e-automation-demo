@@ -24,6 +24,8 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+// Centralized authentication command
+// Abstracts login flow while preserving validation in the spec layer
 Cypress.Commands.add("loginAsSauceDemo", () => {
   cy.visit("/");
   cy.get('[data-test="username"]').type("standard_user");
